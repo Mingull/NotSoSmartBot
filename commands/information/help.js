@@ -29,12 +29,13 @@ function getALL(client, message) {
                 .filter(cmd => cmd.category === category)
                 .map(cmd => `- \`${cmd.name}\``)
                 .join("\n")
+        } else {
+            return client.commands
+                .filter(cmd => cmd.category === category)
+                .filter(cmd => cmd.private == true)
+                .map(cmd => `- \`${cmd.name}\``)
+                .join("\n")
         }
-        return client.commands
-            .filter(cmd => cmd.category === category)
-            .filter(cmd => cmd.private == true)
-            .map(cmd => `- \`${cmd.name}\``)
-            .join("\n")
     }
     const info = client.categories
         .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
