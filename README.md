@@ -1,4 +1,4 @@
-# Lambot
+# notSoSmartBot
 
 ## Contents
 
