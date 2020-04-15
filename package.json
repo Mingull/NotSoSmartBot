@@ -1,7 +1,7 @@
 {
-  "name": "lambot",
+  "name": "notsosmartbot",
   "version": "1.1.0",
-  "description": "lambot created by Mingull",
+  "description": "NotSoSmartBot created by Mingull",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
   "keywords": [
     "Bot",
     "Discord",
-    "Lambot"
+    "NotSoSmartBot"
   ],
   "author": "Mingull",
   "license": "ISC",
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mingull/Lambot.git"
+    "url": "git+https://github.com/Mingull/NotSoSmartBot.git"
   },
   "bugs": {
-    "url": "https://github.com/Mingull/Lambot/issues"
+    "url": "https://github.com/Mingull/NotSoSmartBot/issues"
   },
-  "homepage": "https://github.com/Mingull/Lambot#readme"
+  "homepage": "https://github.com/Mingull/NotSoSmartBot#readme"
 }
