@@ -1,7 +1,14 @@
 # Lambot
 
 ## Contents
+
 - [About](#about)
 - [License](#license)
+---
 
-## about
+## About
+
+This bot is made by `Mingull`.
+
+
+## License
