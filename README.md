@@ -1,4 +1,4 @@
-# notSoSmartBot
+# NotSoSmartBot
 
 ## Contents
 
