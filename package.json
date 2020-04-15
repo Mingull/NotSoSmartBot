@@ -1,0 +1,37 @@
+{
+  "name": "lambot",
+  "version": "1.1.0",
+  "description": "lambot created by Mingull",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "restart": "break && nodemon || worker"
+  },
+  "keywords": [
+    "Bot",
+    "Discord",
+    "Lambot"
+  ],
+  "author": "Mingull",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "common-tags": "^1.8.0",
+    "discord.js": "^12.1.1",
+    "fortnite": "^4.3.2",
+    "minecraft-server-util": "^1.1.0",
+    "random-puppy": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mingull/Lambot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mingull/Lambot/issues"
+  },
+  "homepage": "https://github.com/Mingull/Lambot#readme"
+}
