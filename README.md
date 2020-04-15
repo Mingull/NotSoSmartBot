@@ -1,6 +1,6 @@
 # Lambot
-### By Mingull
 
+## Contents
 - [About](#about)
 - [License](#license)
 
