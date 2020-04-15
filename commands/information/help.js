@@ -24,7 +24,7 @@ function getALL(client, message) {
         .setThumbnail(message.guild.iconURL())
 
     const commands = (category) => {
-        if (message.member.roles.cache.find(r => r.name == "OWNER".toLowerCase() || r.name == "Moderator".toLowerCase())) {
+        if (message.member.roles.cache.find(r => r.name == "OWNER" || r.name == "Moderator")) {
             return client.commands
                 .filter(cmd => cmd.category === category)
                 .map(cmd => `- \`${cmd.name}\``)
