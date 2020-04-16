@@ -13,7 +13,7 @@
 This bot is made by **`Mingull`**.
 He made this bot for fun in his own time.
 and there will be alot of bugs in the bot.
-hes github page: [Github](https://mingull.github.io)
+hes github page: ~[Github](https://mingull.github.io)~
 
 ## Commands
 
@@ -43,4 +43,4 @@ there are 3 categories
 ## License
 
 Please dont use this bot with out my permission,
-contact me on discord: **`Mingull#8676`**
+if you want to _contact me on discord: **`Mingull#8676`**_
