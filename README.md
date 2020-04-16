@@ -36,4 +36,4 @@ This bot is made by `Mingull`.
 ## License
 
 Please dont use this bot with out my permission,
-contact me on discord: **Mingull#8676**
+contact me on discord: `**Mingull#8676**`
