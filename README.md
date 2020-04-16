@@ -10,7 +10,7 @@
 
 ## About
 
-This bot is made by `Mingull`.
+This bot is made by **`Mingull`**.
 
 ## Commands
 
