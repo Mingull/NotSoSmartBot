@@ -10,16 +10,15 @@
 
 ## About
 
-This bot is made by **`Mingull`**. <br />
-He made this bot for fun in his own time. <br />
-and there will be alot of bugs in the bot. <br />
+This bot is made by **`Mingull`**.<br />
+He made this bot for fun in his own time.<br />
+and there will be alot of bugs in the bot.<br />
 hes github page: ~Github~
 
 ## Commands
 
 Here is a list of commands
 there are 3 categories
-***
 
 - Fun
   - 8ball `Sends "Yes" or "No" in differend messages`
