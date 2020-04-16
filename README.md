@@ -10,9 +10,9 @@
 
 ## About
 
-This bot is made by **`Mingull`**.<br />
-He made this bot for fun in his own time.<br />
-and there will be alot of bugs in the bot.<br />
+This bot is made by **`Mingull`**. <br />
+He made this bot for fun in his own time. <br />
+and there will be alot of bugs in the bot. <br />
 hes github page: ~Github~
 
 ## Commands
