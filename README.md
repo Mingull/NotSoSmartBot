@@ -11,27 +11,34 @@
 ## About
 
 This bot is made by **`Mingull`**.
+He made this bot for fun in his own time.
+and there will be alot of bugs in the bot.
+hes github page: [Github](https://mingull.github.io)
 
 ## Commands
 
+Here is a list of commands
+there are 3 categories
+***
+
 - Fun
-  - 8ball
-  - love
-  - meme
-  - rps (Rock Paper Scissors)
+  - 8ball `Sends "Yes" or "No" in differend messages`
+  - love `Shows you how much a member loves you`
+  - meme `Sends an epic meme from a couple of differend subreddits`
+  - rps (Rock Paper Scissors) `Its just Rock Paper Scissors`
 - Information
-  - help
-  - info
-  - ping
-  - server
-  - whois
-- Moderation (for everyone)
-  - report
-  - say
-- Moderation (for mods)
-  - ban
-  - kick
-  - clear
+  - help `Gives you this list`
+  - info `Gives you information of the bot or the server/guild`
+  - ping `Shows you your latency`
+  - server `Gives you information about a mc-server`
+  - whois `Gives you information of a member or yourself`
+- Moderation _(for everyone)_
+  - report `Report a member`
+  - say `Broadcast a message`(maybe it will be only for mods)
+- Moderation _(for mods only)_
+  - ban `Bans members if they don't behave`
+  - kick `Kicks members if they don't behave`
+  - clear `Clears an amount of messages`
 
 ## License
 
