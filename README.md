@@ -17,8 +17,9 @@ hes github page: ~Github~
 
 ## Commands
 
-Here is a list of commands
-there are 3 categories
+Here is a list of commands <br />
+there are 3 categories <br />
+Default prefix: `$`
 
 - Fun
   - 8ball `Sends "Yes" or "No" in differend messages`
