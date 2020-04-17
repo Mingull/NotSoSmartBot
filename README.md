@@ -42,5 +42,5 @@ Default prefix: `$`
 
 ## License
 
-Please dont use this bot with out my permission,<br />
+Please dont use this bot with out my permission, <br />
 if you want to _contact me on discord: **`Mingull#8676`**_
