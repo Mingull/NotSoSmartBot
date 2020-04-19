@@ -1,10 +1,11 @@
 module.exports = {
     name: 'giveaway',
     aliases: ["freestuff"],
-    category: "Moderation",
-    description: "Returns latency and API ping",
+    category: "moderation",
+    description: "Start a giveaway",
     usage: "",
-    private: false,
+    private: true,
     run: async (client, message, args) => {
+        return message.channel.send("hello")
     }
 }

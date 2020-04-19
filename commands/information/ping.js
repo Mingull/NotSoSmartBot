@@ -1,7 +1,7 @@
 module.exports = {
     name: 'ping',
     aliases: ["ping", "latency"],
-    category: "Information",
+    category: "information",
     description: "Returns latency and API ping",
     usage: "",
     private: false,
