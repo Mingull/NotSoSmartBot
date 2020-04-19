@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: '8ball',
     aliases: ["8b"],
-    category: 'fun',
+    category: 'Fun',
     description: "Sends a random message",
     usage: "",
     private: false,

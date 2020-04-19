@@ -4,7 +4,7 @@ const chooseArr = ["🗻", "📃", "✂"];
 module.exports = {
     name: "rps",
     aliases: ["rps"],
-    category: "fun",
+    category: "Fun",
     description: "Rock Paper Scissors game.\nReact to one of the emojisto play the game.",
     usage: "",
     private: false,

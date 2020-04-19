@@ -4,7 +4,7 @@ const { promptMessage } = require("../../backend/functions.js");
 module.exports = {
     name: "ban",
     aliases: ["banhammer"],
-    category: "moderation",
+    category: "Moderation",
     description: "bans the member",
     usage: "<Mention | ID>",
     private: true,

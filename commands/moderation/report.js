@@ -4,7 +4,7 @@ const { stripIndents } = require("common-tags");
 module.exports = {
     name: "report",
     aliases: ["report", "r", "inform"],
-    category: "moderation",
+    category: "Moderation",
     description: "Report a member",
     usage: "<mention | ID>",
     private: false,

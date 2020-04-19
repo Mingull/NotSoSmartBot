@@ -5,7 +5,7 @@ const { stripIndents } = require("common-tags");
 module.exports = {
     name: 'whois',
     aliases: ["userinfo", "user", "who"],
-    category: "information",
+    category: "Information",
     description: "returns user information",
     usage: "[username | id | mention]",
     private: false,

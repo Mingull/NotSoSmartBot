@@ -2,7 +2,7 @@ const { Client, MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'say',
     aliases: ["say", "broadcast"],
-    category: 'moderation',
+    category: 'Moderation',
     description: "Sends a message",
     usage: "<input>",
     private: false,

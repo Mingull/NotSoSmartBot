@@ -1,7 +1,7 @@
 module.exports = {
     name: 'clear',
     aliases: ["clean", "purge", "nuke"],
-    category: "moderation",
+    category: "Moderation",
     description: "Clears the chat",
     usages: '[amount]',
     private: true,

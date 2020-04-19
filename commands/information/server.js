@@ -5,7 +5,7 @@ const server = require("minecraft-server-util");
 module.exports = {
     name: 'server',
     aliases: ["mcs", "mc-server"],
-    category: 'information',
+    category: 'Information',
     description: "Gives information about a minecraft server\n`like play.hypixel.net`",
     usage: "<server-IP> [port]",
     private: false,

@@ -5,7 +5,7 @@ const { stripIndents } = require("common-tags");
 module.exports = {
     name: 'info',
     aliases: ["info"],
-    category: 'information',
+    category: 'Information',
     description: "Returns latency",
     usage: "<bot | [server | guild]>",
     private: false,

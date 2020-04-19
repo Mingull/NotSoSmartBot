@@ -3,7 +3,7 @@ const { stripIndents } = require("common-tags")
 module.exports = {
     name: 'help',
     aliases: ["help", "h", "commands"],
-    category: 'information',
+    category: 'Information',
     description: "Gives a help message",
     usage: "[Command | alias]",
     private: false,
