@@ -13,7 +13,7 @@ module.exports = {
             return message.channel.send("You must be in a voice channel to play music!");
         }
 
-        message.guild.me.voice.channel.join());
+        message.guild.me.voice.channel.join();
         message.channel.send("```Joining```");
     }
 }
