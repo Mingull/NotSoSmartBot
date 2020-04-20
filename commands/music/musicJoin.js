@@ -13,7 +13,11 @@ module.exports = {
             return message.channel.send("You must be in a voice channel to play music!");
         }
 
-        message.guild.me.voice.channel.join();
-        message.channel.send("```Joining```");
+        if (message.guild.me.voice.channel) {
+            return message.channel.send("Bot is already connected to a voice channel");
+        }
+
+        message.member.voice.channel.join();
+        message.channel.send("```Disconnected...```");
     }
 }
