@@ -1,6 +1,8 @@
 const { Client, Collection, Presence } = require("discord.js");
 const config = require("./backend/config.json");
-const fs = require("fs")
+const fs = require("fs");
+
+const active = new Map();
 
 const client = new Client({
     disableEveryone: true
@@ -20,7 +22,7 @@ client.on("ready", () => {
         status: "online",
         afk: false,
         activity: {
-            name: `${config.prefix}help | running on: ${client.guilds.cache.size} servers`,
+            name: `${config.prefix}help | serving: ${client.guilds.cache.size} servers`,
             type: "PLAYING",
         }
     })
@@ -40,6 +42,10 @@ client.on("message", async message => {
     let command = client.commands.get(cmd);
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
-    if (command) command.run(client, message, args);
+    var options = {
+        active: active
+    }
+
+    if (command) command.run(client, message, args, options);
 })
 client.login(process.env.token);
