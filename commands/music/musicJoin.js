@@ -18,6 +18,6 @@ module.exports = {
         }
 
         message.member.voice.channel.join();
-        message.channel.send("```Disconnected...```");
+        message.channel.send("```Joining...```");
     }
 }
