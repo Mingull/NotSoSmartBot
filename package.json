@@ -22,6 +22,7 @@
     "discord.js": "^12.1.1",
     "fortnite": "^4.3.2",
     "minecraft-server-util": "^1.1.0",
+    "mysql": "^2.18.1",
     "opusscript": "0.0.7",
     "random-puppy": "^1.1.0",
     "yt-search": "^1.1.2",
