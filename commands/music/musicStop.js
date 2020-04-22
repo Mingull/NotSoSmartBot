@@ -21,10 +21,9 @@ module.exports = {
             return message.channel.send("You need to be in same voice channel");
         }
 
-        message.guild.me.voice.channel.leave().then(() => {
-            const procfile = require("Procfile");
-            procfile.worker;
-        });
+        message.guild.me.voice.channel.leave()
+        const procfile = require("../../Procfile");
+        procfile.worker;
         message.channel.send("```Disconnected...```");
     }
 }
