@@ -23,7 +23,7 @@ module.exports = {
             .setDescription(`Your ticket has beed marked as **DONE**. if you want to make a new ticket do ${config.prefix}ticket`)
             .setFooter(`ticket closed!`)
             .setTimestamp();
-        const logChannel = message.guild.channels.cache.find(c => c.name == "logs" && c.type == "text");
+        const logChannel = message.guild.channels.cache.find(c => c.name == "ticket-logs" && c.type == "text");
         if(!logChannel) return message.channel.send("Cannot find logs channel");
         logChannel.send(TickCreatedEmbed);
     }

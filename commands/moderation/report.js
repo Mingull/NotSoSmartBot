@@ -22,9 +22,9 @@ module.exports = {
         if (!args[1]) {
             return message.channel.send("Please provide a reason for the report!").then(msg => msg.delete({ timeout: 3000 }));
         }
-        const channel = message.guild.channels.cache.find(channel => channel.name === "reports");
+        const reportsChannel = message.guild.channels.cache.find(c => c.name === "reports" && c.type == "text");
 
-        if (!channel) {
+        if (reportsChannel) {
             return message.channel.send("I could not find a \`#reports\` channel").then(msg => msg.delete({ timeout: 3000 }));
         }
 
@@ -38,7 +38,8 @@ module.exports = {
             **>> Reported in:** ${message.channel}
             **>> Reason:** ${args.slice(1).join(" ")}`);
 
-        return channel.send(embed);
+        console.log(`found ${reportsChannel}`)
+        return reportsChannel.send(embed);
 
     }
 }

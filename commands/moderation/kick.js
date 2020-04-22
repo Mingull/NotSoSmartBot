@@ -9,7 +9,10 @@ module.exports = {
     usage: "<Mention | ID>",
     private: true,
     run: async (client, message, args) => {
-        const logChannel = message.guild.channels.cache.find(c => c.name === "logs") || message.channel;
+        const reportsChannel = message.guild.channels.cache.find(c => c.name === "reports" && c.type == "text");
+        if (reportsChannel) {
+            return message.channel.send("I could not find a \`#reports\` channel").then(msg => msg.delete({ timeout: 3000 }))
+        }
         if (message.deletable) message.delete();
         if (!args[0]) {
             return message.reply("Please provide a person to kick")
@@ -59,7 +62,7 @@ module.exports = {
                 toKick.kick(args.slice(1).join(" ")).catch(err => {
                     if (err) return message.channel.send(`Well..... something went wrong?`)
                 });
-                logChannel.send(embed);
+                reportsChannel.send(embed);
             } else if (emoji === "❌") {
                 msg.delete();
                 message.reply("Kick canceled..")
