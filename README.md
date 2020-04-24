@@ -43,4 +43,5 @@ Default prefix: `$`
 ## License
 
 Please dont use this bot with out my permission, <br />
-if you want to _contact me on discord: **`Mingull#8676`**_
+if you want to _contact me on discord: **`Mingull#8676`**_ <br />
+click [this](https://github.com/Mingull/NotSoSmartBot/blob/master/LICENSE) to see license
