@@ -6,7 +6,7 @@ module.exports = {
     category: "moderation",
     description: "Start a support session",
     usage: "",
-    private: true,
+    private: false,
     run: async (client, message, args) => {
         if(message.deletable) message.delete();
         const ticketCategory = client.channels.cache.find(c => c.name == "tickets" && c.type == "category")

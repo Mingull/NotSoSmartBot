@@ -6,6 +6,7 @@ module.exports = {
     category: "moderation",
     description: "Give a suggestion!",
     usage: "<suggestion>",
+    private: false, 
     run: async (client, message, args) => {
         if(message.deletable) message.delete();
         var suggestion = args.join(" ");

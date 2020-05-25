@@ -1,9 +1,21 @@
 {
-    "prefix": "$",
-    "botInfo": {
-        "author": "Mingull",
-        "version": "1.1.0",
-        "description": "Ill put in a beter description later....",
-        "createdAt": "April 8, 2020"
-    }
+  "prefix": "$",
+  "wordCountString": "yeet",
+  "gyphyTOKEN": "bAbsquY6nCifnIY3ihSu1Fn4YjQQsD7I",
+  "botInfo": {
+    "author": "Mingull",
+    "version": "1.3.56",
+    "description": "Ill put in a beter description later....",
+    "createdAt": "April 8, 2020"
+  },
+  "colors": {
+    "red": "#ff0000",
+    "green": "#00ff00",
+    "blue": "#0000ff",
+    "yellow": "#ffff00",
+    "aqua": "#00ffff",
+    "purple": "#ff00ff",
+    "matteRed": "#ff4040",
+    "limeGreen": "#80ff80"
+  }
 }

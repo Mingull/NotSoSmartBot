@@ -37,16 +37,14 @@ function getALL(client, message) {
                 .join("\n")
         }
     }
-    // const catName1 = client.categories.map(cat => `${cat[0].toUpperCase() + cat.slice(1)}`);
-    // const catCMD = client.categories.map(cat => `\`\`\`${commands(cat)}\`\`\``).reduce((string, category) => string + "\n" + category);
-    // embed.addField(catName1, catCMD, true);
 
-    // return message.channel.send(embed);
     const info = client.categories
         .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n\`\`\`\n${commands(cat)}\`\`\``)
         .reduce((string, category) => string + "\n" + category);
 
-    return message.channel.send(embed.setDescription(info, true));
+    return message.author.send(embed.setDescription(info, true)).then(() => {
+        message.channel.send("Check you DM's for all the commands!").then(msg => msg.delete({ timeout: 3000 }))
+    })
 }
 
 function getCMD(client, message, input) {

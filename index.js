@@ -1,5 +1,8 @@
 const { Client, Collection, MessageEmbed } = require("discord.js");
-const config = require("./backend/config.json");
+const { prefix, wordCountString, colors } = require("./backend/config.json");
+const { getMember, welcomeMessage } = require("./backend/functions.js");
+const database = require("./backend/database.json");
+const mysql = require("mysql")
 const fs = require("fs");
 
 const active = new Map();
@@ -22,15 +25,26 @@ client.on("ready", () => {
         status: "online",
         afk: false,
         activity: {
-            name: `${config.prefix}help | serving: ${client.guilds.cache.size} servers`,
+            name: `${prefix}help | serving: ${client.guilds.cache.size} servers`,
             type: "PLAYING",
         }
     });
-    client.guilds.cache.forEach(g => {
-        console.log(`serving ${g.name}[${g.nameAcronym}](${g.id}) with ${g.memberCount} users in ${g.channels.cache.size} channel`)
+    let num = 0;
+    const colors = ["\x1b[36m%s\x1b[0m", "\x1b[32m%s\x1b[0m"];
+    var color;
+    client.guilds.cache.forEach((g) => {
+        const isOdd = num % 2;
+        if (isOdd == 0) {
+            color = colors[0];
+        } else {
+            color = colors[1];
+        }
+        console.log(color, `serving ${g.name}[${g.nameAcronym}](${g.id}) with ${g.memberCount} users in ${g.channels.cache.size} channel`);
+        num += 1;
     })
     console.log();
 });
+
 client.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(c => c.name == "🤝-welcome" && c.type == "text");
     if (!welcomeChannel) {
@@ -47,7 +61,98 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("message", async message => {
-    const prefix = config.prefix;
+    // WORD COUNTER!
+    if (message.author.bot) return;
+    if (message.content.startsWith(prefix)) return;
+
+    var _regex = new RegExp(wordCountString, "g"); // it will look like this: /word/g
+    var word = message.content.toString(); // gets the content of the message
+    if (word.match(_regex)) {
+        var count = (word.match(_regex) || []).length; // this goes and matches the string with the _regex var
+
+        var authorId = message.author.id.toString();
+        var authorDisc = message.author.discriminator.toString();
+        var authorName = message.author.username.toString();
+        var conn = mysql.createConnection({
+            host: database.host,
+            user: database.user,
+            password: database.password,
+            database: database.db
+        });
+        conn.connect(err => {
+            if (err) console.log(err);
+        });
+        conn.query(`SELECT * FROM message_counter WHERE member_id = "${authorId}"`, (err, rows) => {
+            if (err) console.log(err);
+            if (rows < 1) {
+                conn.query(`INSERT INTO message_counter (member_id, member_name, \`count\`) VALUES ("${authorId}", "${authorName}", ${count})`)
+            }
+            else {
+                conn.query(`SELECT \`count\` FROM message_counter WHERE member_id = "${authorId}"`, (err, rows) => {
+                    if (err) console.log(err);
+                    let oldCount = rows[0].count
+                    conn.query(`UPDATE message_counter SET \`count\` = ${oldCount + count} WHERE member_id = "${message.author.id}"`)
+                    console.log(`${oldCount} + ${count} = ${oldCount + count}`);
+
+                    const saidWordChannel = message.guild.channels.cache.find(c => c.name == "said-word" && c.type == "text");
+                    if (!saidWordChannel) return;
+
+                    saidWordChannel.send(`${message.author.tag} said __\`${wordCountString}\`__ **${oldCount + count}** times`);
+                })
+
+            }
+        })
+    }
+})
+
+client.on("message", async message => {
+    // LEVELING SYSTEM!
+    if (message.author.bot) return;
+    if (message.content.startsWith(prefix)) return;
+
+    var conn = mysql.createConnection({
+        host: database.host,
+        user: database.user,
+        password: database.password,
+        database: database.db
+    });
+
+    conn.connect(err => {
+        if (err) console.log(err);
+    });
+
+    let expAdd = Math.floor(Math.random() * 7) + 8;
+    console.log(expAdd);
+    conn.query(`SELECT * FROM level WHERE member_id = ${message.author.id}`, (err, rows) => {
+        if (err) console.log(err);
+        if (rows < 1) {
+            conn.query(`INSERT INTO level (member_id, member_exp) VALUES ("${message.author.id}", "${expAdd}")`);
+        } else {
+            let curLvl = rows[0].member_level;
+            let curExp = rows[0].member_exp;
+            let nxtLvl = curLvl * 110;
+
+            conn.query(`UPDATE level SET member_exp = ${curExp + expAdd} WHERE member_id = "${message.author.id}"`);
+
+            if (nxtLvl <= (curExp + expAdd)) {
+                conn.query(`UPDATE level SET member_level = ${curLvl + 1} WHERE member_id = "${message.author.id}"`);
+
+                var lvlIndex = Math.floor(nxtLvl / 11)
+                var lvlProgress = "✅".repeat(lvlIndex) + "❌".repeat(10 - lvlIndex);
+
+                const lvlUp = new MessageEmbed()
+                    .setTitle("Level Up!📈")
+                    .setColor(colors.limeGreen)
+                    .addField("Current Level", curLvl + 1)
+                    .addField("Current Exp", (curExp + expAdd))
+                    .addField("Progress", `${(curLvl + 1) * 111} Exp\n\n${lvlProgress}`)
+                message.author.send(lvlUp)
+            }
+        }
+    })
+})
+
+client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
@@ -66,32 +171,6 @@ client.on("message", async message => {
     }
 
     if (command) command.run(client, message, args, options);
-})
-client.login(process.env.token);
+});
 
-function welcomeMessage(member) {
-    const messages = [
-        `\`${member.user.username}\` just joined the server - glhf!`, `\`${member.user.username}\` just joined. Everyone, look busy!`,
-        `\`${member.user.username}\` just joined. Can I get a heal?`, `\`${member.user.username}\` joined your party.`,
-        `\`${member.user.username}\` joined. You must construct additional pylons.`, `Ermagherd. \`${member.user.username}\` is here.`,
-        `Welcome, \`${member.user.username}\`. Stay awhile and listen.`, `Welcome, \`${member.user.username}\`. We were expecting you ( ͡° ͜ʖ ͡°)`,
-        `Welcome, \`${member.user.username}\`. We hope you brought pizza.`, `Welcome \`${member.user.username}\`. Leave your weapons by the door.`,
-        `A wild \`${member.user.username}\` appeared.`, `Swoooosh. \`${member.user.username}\` just landed.`,
-        `Brace yourselves. \`${member.user.username}\` just joined the server.`, `\`${member.user.username}\` just joined. Hide your bananas.`,
-        `\`${member.user.username}\` just arrived. Seems OP - please nerf.`, `\`${member.user.username}\` just slid into the server.`,
-        `A \`${member.user.username}\` has spawned in the server.`, `Big \`${member.user.username}\` showed up!`,
-        `Where’s \`${member.user.username}\`? In the server!`, `\`${member.user.username}\` hopped into the server. Kangaroo!!`,
-        `\`${member.user.username}\` just showed up. Hold my beer.`, `Challenger approaching - \`${member.user.username}\` has appeared!`,
-        `It's a bird! It's a plane! Nevermind, it's just \`${member.user.username}\`.`, `It's \`${member.user.username}\`! Praise the sun! \\\\[T]/`,
-        `Never gonna give \`${member.user.username}\` up. Never gonna let \`${member.user.username}\` down.`, `Ha! \`${member.user.username}\` has joined! You activated my trap card!`,
-        `Cheers, love! \`${member.user.username}\`'s here!`, `Hey! Listen! \`${member.user.username}\` has joined!`,
-        `We've been expecting you \`${member.user.username}\``, `It's dangerous to go alone, take \`${member.user.username}\`!`,
-        `\`${member.user.username}\` has joined the server! It's super effective!`, `Cheers, love! \`${member.user.username}\` is here!`,
-        `\`${member.user.username}\` is here, as the prophecy foretold.`, `\`${member.user.username}\` has arrived. Party's over.`,
-        `Ready player \`${member.user.username}\``, `\`${member.user.username}\` is here to kick butt and chew bubblegum. And \`${member.user.username}\` is all out of gum.`,
-        `Hello. Is it \`${member.user.username}\` you're looking for?`, `\`${member.user.username}\` has joined. Stay a while and listen!`,
-        `Roses are red, violets are blue, \`${member.user.username}\` joined this server with you`,
-    ]
-    const message = messages[Math.floor(Math.random() * messages.length)]
-    return message
-}
+client.login("Njk3MzkwMjQ5OTk0NjE2ODkz.Xpcxug.Ppi-OZ00QCyfRbP_EzqP5XfwJ6c" /*process.env.token*/);

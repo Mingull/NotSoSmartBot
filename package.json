@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
-    "restart": "break && nodemon || worker"
+    "restart": "break && nodemon"
   },
   "keywords": [
     "Bot",
@@ -18,18 +18,23 @@
   "dependencies": {
     "@discordjs/opus": "^0.1.0",
     "ascii-table": "0.0.9",
+    "body-parser": "^1.19.0",
     "common-tags": "^1.8.0",
-    "discord.js": "^12.1.1",
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
     "fortnite": "^4.3.2",
-    "minecraft-server-util": "^1.1.0",
+    "giphy-js-sdk-core": "^1.0.6",
+    "minecraft-server-util": "^1.3.0",
+    "ms": "^2.1.2",
     "mysql": "^2.18.1",
     "opusscript": "0.0.7",
     "random-puppy": "^1.1.0",
     "yt-search": "^1.1.2",
-    "ytdl-core": "^2.1.0"
+    "ytdl-core": "^2.1.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.4"
   },
   "repository": {
     "type": "git",
