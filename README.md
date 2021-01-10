@@ -10,15 +10,15 @@
 
 ## About
 
-This bot is made by **`Mingull`**. <br />
-He made this bot for fun in his own time. <br />
-and there will be alot of bugs in the bot. <br />
-hes github page: ~Github~
+This bot is made by **`Mingull`**.
+I made this bot for fun in his own time.
+and there will be alot of bugs in the bot.
+My website: [Mingull](https://mingull.tk/)
 
 ## Commands
 
-Here is a list of commands <br />
-there are 3 categories <br />
+Here is a list of commands
+there are 3 categories
 Default prefix: `$`
 
 - Fun
@@ -42,6 +42,6 @@ Default prefix: `$`
 
 ## License
 
-Please dont use this bot with out my permission, <br />
-if you want to _contact me on discord: **`Mingull#8676`**_ <br />
+Please dont use this bot with out my permission,
+if you want to _contact me on discord: **`Mingull#8676`**_
 click [this](https://github.com/Mingull/NotSoSmartBot/blob/master/LICENSE) to see license
